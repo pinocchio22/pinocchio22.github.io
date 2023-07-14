@@ -110,7 +110,7 @@ author:
   location         : "South Korea"
   email            : "jin950523@naver.com"
   links:
-     - label: "Github"
+    - label: "Github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pinocchio22"
 
