@@ -1,0 +1,36 @@
+---
+title: "계산기와 추상화"
+layout: single
+categories: TIL
+tag: [TIL, iOS, swift]
+toc: true
+---
+
+# TIL(Today I Learned)
+
+##### Stack View란?
+StackView는 그 자체로 내용을 가지진 않고 UI 요소를 묶어주는 역할이며 종류로는 세로 방향으로 묶는 Vertical Stack View, 가로 방향으로 묶는 Horizontal Stack View
+<br>
+오늘 계산기를 UI까지 구현해보려고 버튼을 하나씩 배치하다보니 각각 제약을 다 걸어줘야 문제없이 배치가 가능한건지 의문이 생겼습니다. <br>
+그렇게 하면 정확한 배치를 하기도 쉽지않을뿐더러 소요되는 시간도 상당히 증가했습니다. <br>
+초장에 알아차렸으면 좋았겠지만 어느 정도 배치를 마치고 나니 더 좋은 방법을 찾게 되었고 StackView라는 것의 존재를 알게 되었습니다. <br>
+하지만 StackView의 정렬 속성이 종류가 여러개였고 기본적인 뷰들의 alignment만 알고있기에 더 공부할 필요가 있었습니다. <br>
+
+###### Stack View의 구성
+* Axis - 가로 스택 뷰인지 세로 스택 뷰인지를 결정
+* Spacing - 하위 뷰 사이 여백을 결정
+* Dstribution - 하위 뷰의 크기 배분을 결정
+* Alignment - 하위 뷰의 위치 정렬을 결정
+
+###### Stack View's Distribution
+1. Fill - Stack View의 크기가 정해져있을때 Stack View의 공간을 모두 채울 수 있도록 하위 뷰를 늘립니다.
+2. Fill Equally - Stack View의 공간을 n/1로 똑같이 나누어서 채웁니다. (각 하위뷰의 크기가 같아집니다.)
+3. Fill Propotionally - Stack View의 공간을 각 하위 뷰의 **고유 콘텐츠 사이즈**에 비례하게 나누어서 채웁니다.
+4. Equal Spacing - Stack View의 공간을 뷰의 크기 만큼 채우고, 뷰의 크기는 그대로 두고 남은 공간을 동일한 크기의 여백으로 채웁니다.
+5. Equal Centering - Stack View의 공간을 뷰의 크기 만큼 채우고, 각 뷰의 중심축 사이 간격이 똑같도록 여백으로 채웁니다. 
+
+###### Stack View's Alignment
+1. Fill - 양쪽 끝을 늘려서 꽉 채웁니다.
+2. Leading(Top) - 하위 뷰의 크기를 그대로 두고 왼쪽(위쪽)으로 정렬 시킵니다.
+3. Trailing(Bottom) - 하위 뷰의 크기를 그대로 두고 오른쪽(아래)으로 정렬 시킵니다.
+4. Center - 하위 뷰의 크기를 그대로 두고 가운데로 정렬 시킵니다.
