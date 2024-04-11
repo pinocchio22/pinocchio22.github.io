@@ -1,5 +1,5 @@
 ---
-title: "[iOS] [RxSwift] subscribe / bind / drive"
+title: "[iOS] [RxSwift] subscribe, bind, drive"
 layout: single
 date: 2024-04-11 18:37:00
 categories: RxSwift
