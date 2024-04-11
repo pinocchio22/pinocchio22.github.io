@@ -1,7 +1,7 @@
 ---
 title: "[iOS] [RxSwift] subscribe, bind, drive"
 layout: single
-date: 2024-04-10 18:37:00
+date: 2024-04-10 18:37:00 +0900
 categories: RxSwift
 tag: [iOS, swift, RxSwift]
 toc: true

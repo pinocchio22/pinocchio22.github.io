@@ -1,7 +1,7 @@
 ---
 title: "[iOS] init VS convenience init"
 layout: single
-date: 2024-04-11 18:14:00
+date: 2024-04-11 18:14:00 +0900
 categories: Swift
 tag: [iOS, swift]
 toc: true
