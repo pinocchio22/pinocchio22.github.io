@@ -14,9 +14,6 @@ toc: true
 Class와 Struct의 차이점은 데이터를 복사해보면 쉽게 알 수 있다. Class의 경우에는 참조타입이므로 데이터가 복사된다해도 데이터 자체를 복사하는 것이 아니라 데이터의 주소값을 저장한다. 그러므로 복사된 데이터가 변경이되면 원본데이터도 변경이 되기 때문에 원본 데이터의 불변을 보장할 수 없다. <br>
 하지만 Struct의 경우에는 값타입이므로 데이터가 복사될때 해당 데이터 자체를 복사한다. 그러므로 복사된 데이터가 변경이되면 복사된 데이터만 변경될 뿐 원본데이터는 그대로 유지가된다.
 ![](images/class,struct1.png)
-<div style="text-align: center;">
-    <img src="images/class,struct1.png" alt="Class와 Struct의 데이터 복사" width="80%" />
-</div>
 
 ### 그렇다면 Class나 Struct안에 서로 다른 타입을 프로퍼티로 가지고 있을때는?
 만약 Class안에 프로퍼티로 Struct를 가지고 있을때 그 Struct에 변경사항이 생긴다면 원본데이터가 변할까 변하지 않을까? <br>
