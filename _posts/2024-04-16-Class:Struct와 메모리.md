@@ -15,8 +15,7 @@ Class와 Struct의 차이점은 데이터를 복사해보면 쉽게 알 수 있�
 하지만 Struct의 경우에는 값타입이므로 데이터가 복사될때 해당 데이터 자체를 복사한다. 그러므로 복사된 데이터가 변경이되면 복사된 데이터만 변경될 뿐 원본데이터는 그대로 유지가된다.
 
 <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct1.png
-" alt="Class와 Struct의 데이터 복사" width="80%" />
+    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct1.png" width="80%" />
 </div>
 
 ### 그렇다면 Class나 Struct안에 서로 다른 타입을 프로퍼티로 가지고 있을때는?
@@ -25,23 +24,23 @@ Class와 Struct의 차이점은 데이터를 복사해보면 쉽게 알 수 있�
 차근 차근 데이터를 출혁해보면서 차이점을 찾아보자.
 
 <div style="text-align: center;">
-    <img src="images/class,struct2.png" alt="Class와 Struct의 데이터 복사" width="80%" />
+    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct2.png"  width="80%" />
 </div>
 
 일단 위와 동일하게 Class와 Struct의 인스턴스를 하나씩 생성하고 프로퍼티들을 출혁해보았다. 아직은 데이터의 변경이 없으므로 원본 데이터와 동일한 값이 출력되는 것을 볼 수 있다. <br>
 먼저 복사된 데이터에서 Class나 Struct가 아닌 인스턴스 내부의 프로퍼티부터 변경을 하고 출력해보자.
 
 <div style="display: flex; justify-content: space-around;">
-    <img src="images/class,struct3-1.png" style="width: 30%; height: 100px;">
-<img src="images/class,struct3-2.png" style="width: 10%; height: 100px;">
+    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct3-1.png" style="width: 30%; height: 100px;">
+<img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct3-2.png" style="width: 10%; height: 100px;">
 </div>
 
 첫번째 예시와 동일하게 Class는 복사된 데이터를 변경했을때 원본데이터 역시 변경되었고, Struct는 복사된 데이터를 변경하여도 원본데이터는 변경되지 않은 것을 확인할 수 있었다. <br>
 그렇다면 Class 내부의 Struct 프로퍼티와 Struct 안의 Class 프로퍼티를 변경할때는 어떻게 될까?
 
 <div style="display: flex; justify-content: space-around;">
-    <img src="images/class,struct4-1.png" style="width: 30%; height: 100px;">
-<img src="images/class,struct4-2.png" style="width: 10%; height: 100px;">
+    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct4-1.png" style="width: 30%; height: 100px;">
+<img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct4-2.png" style="width: 10%; height: 100px;">
 </div>
 
 Class안의 Struct와 Struct안의 Class 모두 변경된 것을 볼 수 있다. 단순히 구조만 봤을때는 가장 부모가 Class일때는 부모를 따라서 참조타입으로, 가장 부모가 Struct일때는 부모를 따라서 값타입으로 동작한다고 생각했었다. 하지만 막상 데이터를 직접 출력해보니 그게 아니었다.
@@ -52,8 +51,8 @@ Class안의 Struct와 Struct안의 Class 모두 변경된 것을 볼 수 있다.
 ### 엥? 그러면 실질적으로 메모리에서 어떻게 저장되고 있는 것 일까?
 Class와 Struct로 선언한 변수 자체와 변수의 데이터 주소값을 각각 출력해 보았다. 여기서 하나의 의문이 생겼다.
 <div style="display: flex; justify-content: space-around;">
-    <img src="images/class,struct5-1.png" style="width: 30%; height: 100px;">
-<img src="images/class,struct5-2.png" style="width: 15%; height: 100px;">
+    <img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct5-1.png" style="width: 30%; height: 100px;">
+<img src="https://raw.githubusercontent.com/pinocchio22/pinocchio22.github.io/master/_posts/images/class,struct5-2.png" style="width: 15%; height: 100px;">
 </div>
 결과를 보면 저장되는 메모리가 Stack인지 Heap인지 정확히 판단할 수는 없지만 내 생각엔 Class는 Heap 영역에 저장되므로 Class와 Class.value의 위치가 비슷하고 동떨어진 곳에 Struct와 Struct.value가 비슷한 위치로 출력되어야 했다. 하지만 Class 변수와 Struct 변수, Struct 변수의 데이터가 비슷한 위치에 저장이되고 Class 변수의 데이터만 다른 위치에 저장되고 있었다. <br>
 출력 결과만 봐서는 Class 변수가 예상과 다르게 Stack 영역에 저장되고 있는 듯 했지만 집약된 메모리 주소로만 메모리 영역을 판단하기에는 위험성이 있으므로 여기 저기를 찾아보며 그 이유를 알게되었다. <br> 
