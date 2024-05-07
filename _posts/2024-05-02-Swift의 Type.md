@@ -24,7 +24,7 @@ let socond = People(name: "pinocchio33")
 이름이 없는 복합 타입으로 Swift 언어 자체에서 정의된다. 
 
 ## tuple Types
-named types 나 compound types를 포함하며 다양한 데이터 묶음에 대하여 새롭게 정의하여 사용할 수 있는 타입이다. 
+named types 나 compound types를 포함하며 다양한 데이터 묶음에 대하여 새롭게 정의하여 사용할 수 있는 타입이다. 상황에 따라 유용하게 사용할 수 있지만 임시적으로 그룹짓는 데이터에 대해서만 사용하고 임시적인 범위를 넘어서 존속 가능성이 있는 데이터는 클래스나 구조체로 모델링해서 사용하기를 Swift에서도 권장하고 있다.
 
 ```swift
 let tuple: (String, Int) = ("pinocchio22", 1)
@@ -48,7 +48,9 @@ func setPeople(name: String) {}
 
 ```swift
 // 함수타입 (String) -> (String)
-func setPeople(name: String) -> String {}
+func setPeople(name: String) -> String {
+	return "pinocchio22"
+}
 ```
 
 ### 파리미터와 리턴타입이 모두 존재하지 않는 함수 타입
